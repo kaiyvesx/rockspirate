@@ -1,0 +1,198 @@
+{
+    "stripe": {
+        "name": "Stripe",
+        "slug": "stripe",
+        "patterns": [
+            "stripe.js",
+            "js.stripe.com/v3",
+            "stripe-payment-request",
+            "wc-stripe",
+            "stripe_checkout",
+            "woocommerce-gateway-stripe",
+            "stripe_payment_form",
+            "stripe-card-element"
+        ]
+    },
+    "ppcp": {
+        "name": "PayPal Commerce Platform",
+        "slug": "ppcp",
+        "patterns": [
+            "woocommerce-paypal-payments",
+            "paypal.com/sdk/js",
+            "ppcp-gateways",
+            "wc-paypal",
+            "paypal_commerce_platform",
+            "paypal_connect",
+            "paypal-smart-buttons",
+            "wcPPCPSettings",
+            "pymntpl-paypal-woocommerce"
+        ]
+    },
+    "paypal": {
+        "name": "PayPal Standard/Express",
+        "slug": "paypal",
+        "patterns": [
+            "paypal-for-woocommerce",
+            "woocommerce-gateway-paypal-express",
+            "paypal_express",
+            "paypal_checkout",
+            "paypal_standard",
+            "www.paypalobjects.com"
+        ]
+    },
+    "authnet": {
+        "name": "Authorize.Net",
+        "slug": "authnet",
+        "patterns": [
+            "woocommerce-gateway-authorizenet",
+            "Accept.js",
+            "AcceptCore.js",
+            "wc-authorize-net",
+            "authorizenet_acceptjs",
+            "authorizenet-aim"
+        ]
+    },
+    "square": {
+        "name": "Square",
+        "slug": "square",
+        "patterns": [
+            "woocommerce-gateway-square",
+            "squareup.com/v2/paymentform",
+            "square-payment-form",
+            "wc-square",
+            "square_credit_card"
+        ]
+    },
+    "braintree": {
+        "name": "Braintree",
+        "slug": "braintree",
+        "patterns": [
+            "woocommerce-gateway-braintree",
+            "js.braintreegateway.com",
+            "wc-braintree",
+            "braintree-payment-gateway",
+            "braintree-dropin"
+        ]
+    },
+    "adyen": {
+        "name": "Adyen",
+        "slug": "adyen",
+        "patterns": [
+            "adyen-woocommerce",
+            "adyen.com",
+            "wc-adyen",
+            "adyen-checkout"
+        ]
+    },
+    "klarna": {
+        "name": "Klarna",
+        "slug": "klarna",
+        "patterns": [
+            "klarna-checkout-for-woocommerce",
+            "klarna-payments-for-woocommerce",
+            "klarna-sdk",
+            "klarna_payments",
+            "klarnapayments"
+        ]
+    },
+    "mollie": {
+        "name": "Mollie",
+        "slug": "mollie",
+        "patterns": [
+            "mollie-payments-for-woocommerce",
+            "mollie.com",
+            "mollie-wc"
+        ]
+    },
+    "razorpay": {
+        "name": "Razorpay",
+        "slug": "razorpay",
+        "patterns": [
+            "razorpay-payments-for-woocommerce",
+            "checkout.razorpay.com",
+            "razorpay-wc",
+            "razorpay.js"
+        ]
+    },
+    "paystack": {
+        "name": "Paystack",
+        "slug": "paystack",
+        "patterns": [
+            "wc-paystack",
+            "paystack-woocommerce",
+            "paystack.co",
+            "paystack.js"
+        ]
+    },
+    "wcpay": {
+        "name": "WooCommerce Payments",
+        "slug": "wcpay",
+        "patterns": [
+            "woocommerce-payments",
+            "wcpay-",
+            "wc-payments",
+            "public.jetpack.com"
+        ]
+    },
+    "payflow": {
+        "name": "PayPal Payflow",
+        "slug": "payflow",
+        "patterns": [
+            "woocommerce-gateway-paypal-pro",
+            "payflow-pro",
+            "paypal-pro-classic"
+        ]
+    },
+    "affirm": {
+        "name": "Affirm",
+        "slug": "affirm",
+        "patterns": [
+            "woocommerce-gateway-affirm",
+            "affirm.com/js",
+            "affirmInlineCheckout",
+            "affirm-checkout"
+        ]
+    },
+    "bacs": {
+        "name": "Direct Bank Transfer",
+        "slug": "bacs",
+        "patterns": []
+    },
+    "cheque": {
+        "name": "Check Payments",
+        "slug": "cheque",
+        "patterns": []
+    },
+    "cod": {
+        "name": "Cash on Delivery",
+        "slug": "cod",
+        "patterns": []
+    },
+    "tap": {
+        "name": "Tap Payments",
+        "slug": "tap",
+        "patterns": [
+            "tap-all-in-one",
+            "taap.js",
+            "payment_method_tap"
+        ]
+    },
+    "xprizo": {
+        "name": "Xprizo",
+        "slug": "xprizo",
+        "patterns": [
+            "xprizo",
+            "payment_method_xprizo"
+        ]
+    },
+    "nmi": {
+        "name": "NMI",
+        "slug": "nmi",
+        "patterns": [
+            "Collect.js",
+            "secure.networkmerchants.com/token/Collect.js",
+            "nmi_gateway",
+            "woocommerce-gateway-nmi"
+        ]
+    }
+}
