@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, HttpUrl
 from typing import List, Optional, Dict
 import requests
@@ -12,6 +13,7 @@ import json
 import re
 import os
 import random
+import asyncio
 from datetime import datetime
 from urllib.parse import urljoin, urlparse
 from concurrent.futures import ThreadPoolExecutor
@@ -394,6 +396,57 @@ def scan_single_url(request: ScanRequest):
         simulate_cart=request.simulate_cart
     )
     return detector.detect(str(request.urls[0]))
+
+@app.post("/kaido-live")
+async def scan_urls_live(request: ScanRequest):
+    """Scan multiple URLs with real-time progress updates (Server-Sent Events)"""
+    
+    async def generate():
+        detector = TechDetector(
+            timeout=request.timeout,
+            simulate_cart=request.simulate_cart
+        )
+        total = len(request.urls)
+        
+        # Send initial status
+        yield f"data: {json.dumps({'type': 'start', 'total': total, 'message': f'Starting scan of {total} URLs...'})}\n\n"
+        
+        for idx, url in enumerate(request.urls, 1):
+            # Scan the URL
+            result = detector.detect(str(url))
+            
+            # Send progress update with result
+            yield f"data: {json.dumps({
+                'type': 'progress',
+                'current': idx,
+                'total': total,
+                'url': str(url),
+                'platform': result.platform,
+                'is_woocommerce': result.is_woocommerce,
+                'confidence': result.confidence,
+                'detected_gateways': [g.dict() for g in result.detected_gateways],
+                'cloudflare': result.cloudflare,
+                'captcha': result.captcha,
+                'country': result.country,
+                'signatures_found': result.signatures_found[:5],  # First 5 signatures
+                'error': result.error
+            })}\n\n"
+            
+            # Small delay to avoid flooding
+            await asyncio.sleep(0.1)
+        
+        # Send completion message
+        yield f"data: {json.dumps({'type': 'complete', 'message': 'All scans completed!'})}\n\n"
+    
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no"  # Disable nginx buffering
+        }
+    )
 
 @app.get("/gateways")
 def list_gateways():
